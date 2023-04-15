@@ -18,12 +18,12 @@ const p1 = []
 const p2 = []
 let p1score = document.getElementById('p1score')
 let p2score = document.getElementById('p2score')
-//EVENT USER CLICK
-let stats = document.getElementById('status')
+
 const bx = document.querySelectorAll(".box")
+let outc = document.getElementById('outcome')
+let stats = document.getElementById('status')
 
 let crntplayer = "Xplayer"
-
 
 function resetArrNbox(){
    p1.length = 0;
@@ -33,8 +33,7 @@ function resetArrNbox(){
    })
 }
 
-
-
+//EVENT USER CLICK
 bx.forEach((v, i, arr) => {
       const box = v;
       box.addEventListener("click", (e) => {
@@ -56,12 +55,12 @@ bx.forEach((v, i, arr) => {
 
               
             if(p1result){
-               document.getElementById('outcome').innerHTML = "PLAYER X WIN!!"
+               outc.innerHTML = "PLAYER X WIN!!"
                p1score.innerHTML = Number(p1score.innerHTML) + 1;
                resetArrNbox()
             
             }else if(p1.length + p2.length == 9){
-               document.getElementById('outcome').innerHTML = "DRAW!!"
+               outc.innerHTML = "DRAW!!"
                resetArrNbox()
             }
 
@@ -83,12 +82,12 @@ bx.forEach((v, i, arr) => {
 
             // console.log(p2result)
             if(p2result){
-               document.getElementById('outcome').innerHTML = "PLAYER O WIN!!"           
+               outc.innerHTML = "PLAYER O WIN!!"           
                p2score.innerHTML = Number(p2score.innerHTML) + 1;
                resetArrNbox()
          
             }else if(p1.length + p2.length == 9){
-               document.getElementById('outcome').innerHTML = "DRAW!!"
+               outc.innerHTML = "DRAW!!"
                resetArrNbox()
             }
                document.getElementById('status').innerHTML = "Player X" 
@@ -98,18 +97,9 @@ bx.forEach((v, i, arr) => {
 }) 
 
 document.getElementById('resetbtn').onclick = () =>{
-   document.getElementById('outcome').innerHTML = ""
+   outc.innerHTML = ""
    p1score.innerHTML = ""
    p2score.innerHTML = ""
    resetArrNbox()
 }
 
-
-// bx.forEach((elbox) => {
-//    // console.log(elbox.style.backgroundImage)
-//    if(elbox.style.backgroundImage){
-//       console.log("meron")
-//    }else{
-//       console.log("wala")
-//    }
-// })
